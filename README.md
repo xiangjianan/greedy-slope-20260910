@@ -1,4 +1,4 @@
-# 贪坡 GREEDY SLOPE
+# GREEDY SLOPE
 
 **English** | [简体中文](README.zh-CN.md)
 
@@ -45,5 +45,5 @@ Just double-click `index.html`, or:
 
 ```bash
 python3 -m http.server 8000
-# 打开 http://localhost:8000
+# open http://localhost:8000
 ```
