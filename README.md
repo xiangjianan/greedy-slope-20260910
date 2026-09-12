@@ -1,45 +1,47 @@
 # 贪坡 GREEDY SLOPE
 
-> 一指禅赌狗斜坡：小球自动滚过金色赌档，档内倍率疯涨，点按=收手入袋；贪过隐藏爆点=当场爆炸。
+**English** | [简体中文](README.zh-CN.md)
 
-🎮 **在线试玩**：https://xiangjianan.github.io/greedy-slope-20260910/
+> A one-finger push-your-luck slope: the ball rolls automatically through golden betting gates where multipliers climb like crazy; tap = cash out; get greedy past a hidden bust point = instant explosion.
 
-单文件 HTML5（Canvas + 原生 JS + WebAudio 合成音效），零构建、零依赖、无网络请求，双击 `index.html` 即玩，支持鼠标 / 触屏 / 空格键。
+🎮 **Play online**: https://xiangjianan.github.io/greedy-slope-20260910/
 
-## 玩法说明
+Single-file HTML5 (Canvas + vanilla JS + WebAudio synthesized sound effects), zero build, zero dependencies, no network requests. Double-click `index.html` to play; supports mouse / touch / spacebar.
 
-1. 小球自动沿斜坡滚动，**不需要任何操作**
-2. 滚进**金色赌档**后进入子弹时间，分数倍率从 ×1.0 自动攀升，越等越快、心跳越急
-3. **点按（鼠标 / 触屏 / 空格）= 收手**：锁定当前倍率入袋得分，弹射出档继续滚
-4. 每个赌档都有一个**隐藏爆点**（×1.6 ~ ×12.5 随机）：倍率涨过爆点 → 当场爆炸，一局结束
-5. **前 2 档有护盾**：炸了只按一半入袋，不死——先让你爽一次，再让你手痒
-6. 分数 = Σ(收手倍率×100)；结算面板晒出「贪爆于 ×N.N」，比比谁死得更贪
+## How to Play
 
-## 操作
+1. The ball rolls down the slope automatically — **no input required**
+2. Rolling into a **golden betting gate** triggers bullet time; the score multiplier climbs automatically from ×1.0, rising faster the longer you wait, heartbeat racing
+3. **Tap (mouse / touch / spacebar) = cash out**: locks in the current multiplier for points, and the ball ejects from the gate to keep rolling
+4. Every gate hides a **bust point** (×1.6 ~ ×12.5 random): if the multiplier climbs past it → instant explosion, run over
+5. **The first 2 gates have a shield**: on a bust you only bank half — no death. It lets you feel the rush once first, then makes your hands itch
+6. Score = Σ(cashed-out multiplier × 100); the results panel shows "busted at ×N.N" — see who died greedier
 
-| 平台 | 操作 |
+## Controls
+
+| Platform | Controls |
 | --- | --- |
-| 手机 | 点按屏幕任意位置 |
-| 桌面 | 鼠标点击 / 空格 / ↑ / Enter |
+| Mobile | Tap anywhere on screen |
+| Desktop | Mouse click / spacebar / ↑ / Enter |
 
-## 沉迷机制设计意图（借鉴的心理钩子）
+## Addiction-Mechanic Design Intent (Psychological Hooks Borrowed)
 
-- **Push-your-luck（赌狗机制）**——参考 HN 近期爆火的 Per Diem（Balatro 式每日骰子，[hn.algolia item 49471634](https://news.ycombinator.com/item?id=49471634)）与全球爆火的 crash 类玩法（Aviator/JetX）：收益持续攀升 + 随时可以「见好就收」+ 爆点未知。多巴胺不来自赢，来自「再等一下」的悬崖边
-- **3 秒上手、零学习成本**——参考 Bisecto（[hn.algolia item 49374879](https://news.ycombinator.com/item?id=49374879)）的极简主义：跑酷段全自动，玩家唯一要做的一个决定就是「停」，规则一句话讲完
-- **短核心循环 + 即时重开**——单局 30~120 秒，死亡爆炸 → 结算 → 点按重开 <0.5 秒，参考 Flappy Bird 的「再来一局」成瘾回路
-- **保底式伪随机**——连续两档爆点都 <×2.0 时强制重掷，压制「运气差骂街」；死亡永远是「我太贪」而不是「游戏坑我」，参考《羊了个羊》的概率体感调校
-- **死因攀比 / 可分享性**——结算直接给「贪爆 ×8.3」这种可晒数字：最高倍率、最高分存 localStorage，社交语境下天然生成「你敢贪到几倍」的挑战
-- **即时反馈 juice**——倍率数字弹跳、心跳滴答随倍率加速、收手金币喷泉 + 琶音、爆炸屏震 + 白闪 + 低音，全部 WebAudio 实时合成，无音频文件
+- **Push-your-luck** — modeled on HN's recent hit Per Diem (a Balatro-style daily dice game, [hn.algolia item 49471634](https://news.ycombinator.com/item?id=49471634)) and the globally viral crash genre (Aviator/JetX): rewards keep climbing + you can "quit while ahead" anytime + the bust point is unknown. The dopamine doesn't come from winning — it comes from the cliff edge of "just a little longer"
+- **3-second onboarding, zero learning cost** — inspired by Bisecto's ([hn.algolia item 49374879](https://news.ycombinator.com/item?id=49374879)) minimalism: the downhill section is fully automatic, the player's only decision is "when to stop," and the rules fit in one sentence
+- **Short core loop + instant restart** — runs last 30~120 seconds; death explosion → results → tap to restart in <0.5 seconds, borrowing Flappy Bird's "one more run" addiction loop
+- **Pity-style pseudo-randomness** — when two consecutive gates have bust points <×2.0, a forced reroll suppresses "bad luck rage"; death is always "I was too greedy," never "the game screwed me," following Sheep-a-Sheep's probability-feel tuning
+- **Cause-of-death rivalry / shareability** — the results screen hands you a brag-worthy number like "busted at ×8.3": best multiplier and high score stored in localStorage, naturally generating "how greedy dare you go" challenges in social contexts
+- **Instant-feedback juice** — bouncing multiplier digits, heartbeat ticking that accelerates with the multiplier, coin fountain + arpeggio on cash-out, screen shake + white flash + bass drop on explosion, all synthesized in real time with WebAudio, no audio files
 
-## 数值设计
+## Numeric Design
 
-- 倍率曲线：`m(T) = 1 + 0.55T + 0.075T²`（T 为档内秒数，后期档涨速 +3%/档）→ ×2.4 约 2 秒、×5.6 约 5 秒、×14.5 约 10 秒
-- 爆点分布：55% 落在 ×1.6-3.8，30% 落在 ×3.8-8.0，15% 落在 ×8.0-12.5 → ×2.4 收手存活约 76%、×4.4 存活约 41%，期望收益峰值在 ×2.4-3.3，「多贪一秒」永远看起来值得
-- 前 2 档护盾保证新手前 30 秒必有一次「赢」
+- Multiplier curve: `m(T) = 1 + 0.55T + 0.075T²` (T = seconds inside the gate, later gates climb +3%/gate) → ×2.4 in about 2s, ×5.6 in about 5s, ×14.5 in about 10s
+- Bust-point distribution: 55% fall in ×1.6–3.8, 30% in ×3.8–8.0, 15% in ×8.0–12.5 → cashing out at ×2.4 survives ~76%, ×4.4 survives ~41%; expected value peaks at ×2.4–3.3, so "one more second" always looks worth it
+- Shields on the first 2 gates guarantee beginners a "win" within the first 30 seconds
 
-## 本地运行
+## Run Locally
 
-直接双击 `index.html`，或：
+Just double-click `index.html`, or:
 
 ```bash
 python3 -m http.server 8000
